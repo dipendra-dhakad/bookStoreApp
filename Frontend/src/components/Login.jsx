@@ -25,14 +25,14 @@ const Login = () => {
                  setTimeout(()=>{  
                   window.location.reload();
                   localStorage.setItem("Users",JSON.stringify(res.data.user));
-                 },3000);
+                 },1000);
                 
             }
            
         } catch (err) {
             console.log(err);
             toast.error("Error: " + (err.response ? err.response.data.message : err.message));
-            setTimeout(()=>{});
+            setTimeout(()=>{},2000);
         }
     };
 
@@ -43,7 +43,7 @@ const Login = () => {
 
            {/* if there is a button in form, it will close the modal */}
            <button  
-            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:text-black"
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:text-black "
             onClick={()=>document.getElementById("my_modal_3").close()}>
               ✕
             </button>
@@ -51,7 +51,7 @@ const Login = () => {
            
           
           
-          <h3 className="font-bold text-lg dark:text-black text-center underline">Login</h3>
+          <h3 className="font-bold text-lg  text-center underline dark:text-black">Login</h3>
                {/* Email */}
               <div className="mt-4 space-y-2">
                  <span className="dark:text-black">Email</span>
@@ -81,7 +81,7 @@ const Login = () => {
               </div>
  
               {/* button */}
-              <div className="flex justify-around mt-4">
+              <div className="flex justify-around mt-6">
                  <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200">
                     Login
                  </button>

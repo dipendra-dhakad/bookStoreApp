@@ -7,10 +7,10 @@ const Footer = () => {
         <hr/>
       <footer className="footer footer-center  text-base-content rounded p-10 dark:bg-slate-900 dark:text-white">
         <nav className="grid grid-flow-col gap-4">
+          <a href="/" className="link link-hover">Home</a>
+          <a href="/course" className="link link-hover">Course</a>
           <a className="link link-hover">About us</a>
-          <a className="link link-hover">Contact</a>
-          <a className="link link-hover">Jobs</a>
-          <a className="link link-hover">Press kit</a>
+          <a className="link link-hover">Contact us</a>
         </nav>
         <nav>
           <div className="grid grid-flow-col gap-4">

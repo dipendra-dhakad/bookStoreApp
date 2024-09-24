@@ -14,30 +14,6 @@ const Signup = () => {
         formState: { errors },
       } = useForm()
 
-      // const onSubmit = async (data) => {
-      //   const userInfo ={
-      //         fullname :data.fullname,
-      //         email:data.email,
-      //         password:data.password,
-      //   }
-      //  await axios.post("http://localhost:3000/user/signup",userInfo)
-      //   .then((res)=>{
-      //     console.log(res.data)
-      //     if(res.data){
-      //       alert("Signup successfully")
-      //     }
-      //   }).catch((err)=>{
-      //     console.log(err)
-      //     alert("Error: " + err)
-      //     // if (err.response) {
-      //     //   // console.error('Error Data:', err.response.data); // Log the error details
-      //     //   alert('User Created Successfully: ' + err.response.data.message);    // Show the backend error message
-      //     // } else {
-      //     //   console.error('Error:', err.message);
-      //     //   alert('Error: ' + err.message);
-      //     // }
-      //   })
-
       const onSubmit = async (data) => {
         const userInfo = {
             fullname: data.fullname,
@@ -71,7 +47,7 @@ const Signup = () => {
                     ✕
                   </Link>
                 
-                <h3 className="font-bold text-lg dark:text-black text-center underline">Signup</h3>
+                <h3 className="font-bold text-lg text-center underline">Signup</h3>
                     {/* Name */}
                     <div className="mt-4 space-y-2">
                        <span className="dark:text-black">Name</span>

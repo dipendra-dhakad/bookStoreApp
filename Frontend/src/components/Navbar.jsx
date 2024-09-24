@@ -2,11 +2,12 @@
 import { useEffect, useState } from "react";
 import Login from "../components/Login";
 import Logout from "../components/Logout";
+import { useAuth } from "../components/context/AuthProvider";
 
 
 function Navbar() {
   // eslint-disable-next-line no-unused-vars
-  const [authUser,setAuthUser] = useState();
+  const [authUser,setAuthUser] = useAuth();
 
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -60,9 +61,9 @@ function Navbar() {
   return (
     <>
       <div
-        className={`max-w-screen-2xl container mx-auto md:px-20 px-4 fixed top-0 left-0 right-0 z-50 ${
+        className={`max-w-screen-2xl container mx-auto md:px-20 px-4 dark:bg-slate-800 dark:text-white fixed top-0 left-0 right-0 z-50 ${
           sticky
-            ? "sticky-navbar shadow-md bg-base-200 dark:bg-slate-600 duration-300 transition-all ease-in-out"
+            ? "sticky-navbar shadow-md bg-base-200 dark:bg-slate-700 dark:text-white duration-300 transition-all ease-in-out"
             : ""
         }`}
       >
@@ -97,12 +98,12 @@ function Navbar() {
 
           <div className="navbar-end space-x-3">
             <div className="navbar-center hidden lg:flex">
-              <ul className="menu menu-horizontal px-1 text-slate-700">{navItems}</ul>
+              <ul className="menu menu-horizontal px-1 ">{navItems}</ul>
             </div>
 
             <div className="hidden md:block">
               <label className="px-3 py-2 border rounded-md  flex items-center gap-2">
-                <input type="text" className="grow outline-none dark:bg-slate-900 dark:text-white" placeholder="Search" />
+                <input type="text" className="grow outline-none rounded-md px-1 dark:bg-slate-900 dark:text-white" placeholder="Search" />
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -129,7 +130,7 @@ function Navbar() {
 
               {/* sun icon */}
               <svg
-                className="swap-off h-8 w-7 fill-current"
+                className="swap-off h-7 w-7 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -140,7 +141,7 @@ function Navbar() {
 
               {/* moon icon */}
               <svg
-                className="swap-on h-8 w-7 fill-current"
+                className="swap-on h-7 w-7 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >

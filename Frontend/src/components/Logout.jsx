@@ -19,7 +19,7 @@ const Logout = () => {
              },3000);
             
         } catch (error) {
-            toast.error("Error: " + error.message);
+            toast.error("Error: " + error);
             setTimeout(()=>{},2000);
         }
      }

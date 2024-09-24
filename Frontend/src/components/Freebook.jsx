@@ -67,8 +67,8 @@ function Freebook() {
     <>
       <div className="max-w-screen-2xl container mx-auto md:px-20 px-4">
         <div>
-          <h1 className="font-semibold text-xl pb-2">Free offered Courses</h1>
-          <p>
+          <h1 className="font-semibold text-xl pb-2 ">Free offered Courses</h1>
+          <p className="text-sm md:text-xl">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
             dolorum officia sunt! Iure perferendis maiores officia facere
             numquam! Cupiditate iste harum pariatur quo.
