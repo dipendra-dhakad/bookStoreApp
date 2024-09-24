@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form"
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
     const {
@@ -8,23 +10,51 @@ const Login = () => {
         formState: { errors },
       } = useForm()
 
-      const onSubmit = (data) => console.log(data)
+      const onSubmit = async (data) => {
+        const userInfo = {
+            email: data.email,
+            password: data.password,
+        };
+        
+        try {
+            const res = await axios.post("http://localhost:3000/user/login", userInfo);
+            console.log(res.data);
+            if (res.data) {
+                toast.success("Login successfully");
+                document.getElementById("my_modal_3").close();
+                 setTimeout(()=>{  
+                  window.location.reload();
+                  localStorage.setItem("Users",JSON.stringify(res.data.user));
+                 },3000);
+                
+            }
+           
+        } catch (err) {
+            console.log(err);
+            toast.error("Error: " + (err.response ? err.response.data.message : err.message));
+            setTimeout(()=>{});
+        }
+    };
 
   return (
     <div>
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
-          <form  onSubmit={handleSubmit(onSubmit)} method="dialog">
-            {/* if there is a button in form, it will close the modal */}
-            <button 
-            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+
+           {/* if there is a button in form, it will close the modal */}
+           <button  
+            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 dark:text-black"
+            onClick={()=>document.getElementById("my_modal_3").close()}>
               ✕
             </button>
+          <form  onSubmit={handleSubmit(onSubmit)} method="dialog">
+           
           
-          <h3 className="font-bold text-lg">Login</h3>
+          
+          <h3 className="font-bold text-lg dark:text-black text-center underline">Login</h3>
                {/* Email */}
               <div className="mt-4 space-y-2">
-                 <span>Email</span>
+                 <span className="dark:text-black">Email</span>
                  <br/>
                  <input 
                  type="email"
@@ -38,7 +68,7 @@ const Login = () => {
 
               {/* password */}
               <div className="mt-4 space-y-2">
-                 <span>Password</span>
+                 <span className="dark:text-black">Password</span>
                  <br/>
                  <input 
                  type="password"
